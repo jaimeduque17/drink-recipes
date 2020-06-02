@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CategoriesContext } from '../context/CategoriesContext';
 
 const Form = () => {
+
+    const { categories } = useContext(CategoriesContext);
+
     return (
         <form
             className="col-12"
@@ -23,10 +27,18 @@ const Form = () => {
                         name="category"
                     >
                         <option value="">-- Select Category --</option>
+                        {categories.map(category => (
+                            <option
+                                key={category.strCategory}
+                                value={category.strCategory}
+                            >
+                                {category.strCategory}
+                            </option>
+                        ))}
                     </select>
                 </div>
                 <div className="col-md-4">
-                    <input 
+                    <input
                         type="submit"
                         className="btn btn-block btn-primary"
                         value="Search Drinks"
