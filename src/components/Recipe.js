@@ -42,7 +42,7 @@ const Recipe = ({ recipe }) => {
     }
 
     // extract context values
-    const { setIdrecipe } = useContext(ModalContext);
+    const { information, setIdrecipe, setRecipe } = useContext(ModalContext);
 
     return (
         <div className="col-md-4 mb-3">
@@ -64,6 +64,7 @@ const Recipe = ({ recipe }) => {
                         open={open}
                         onClose={() => {
                             setIdrecipe(null);
+                            setRecipe({});
                             handleClose();
                         }}
                     >
@@ -71,7 +72,12 @@ const Recipe = ({ recipe }) => {
                             style={modalStyle}
                             className={classes.paper}
                         >
-                            <h1>From Modal</h1>
+                            <h2>{information.strDrink}</h2>
+                            <h3 className="mt-4">Instructions</h3>
+                            <p>
+                                {information.strInstructions}
+                            </p>
+                            <img className="img-fluid my-4" src={information.strDrinkThumb} />
                         </div>
                     </Modal>
                 </div>

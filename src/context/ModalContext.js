@@ -8,7 +8,7 @@ const ModalProvider = (props) => {
 
     // provider state
     const [idrecipe, setIdrecipe] = useState(null);
-    const [recipe, setRecipe] = useState({});
+    const [information, setRecipe] = useState({});
 
     // when we have a recipe call the API
     useEffect(() => {
@@ -27,7 +27,9 @@ const ModalProvider = (props) => {
     return (
         <ModalContext.Provider
             value={{
-                setIdrecipe
+                information,
+                setIdrecipe,
+                setRecipe
             }}
         >
             {props.children}
