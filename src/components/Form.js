@@ -10,7 +10,7 @@ const Form = () => {
     });
 
     const { categories } = useContext(CategoriesContext);
-    const { setSearchrecipes } = useContext(RecipesContext);
+    const { setSearchrecipes, setConsult } = useContext(RecipesContext);
 
     // function to read the content
     const getData = (e) => {
@@ -26,6 +26,7 @@ const Form = () => {
             onSubmit={e => {
                 e.preventDefault();
                 setSearchrecipes(search);
+                setConsult(true);
             }}
         >
             <fieldset className="text-center">
